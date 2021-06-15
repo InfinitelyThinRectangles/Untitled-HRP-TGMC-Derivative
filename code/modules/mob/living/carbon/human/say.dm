@@ -64,3 +64,28 @@
 /mob/living/carbon/human/get_alt_name()
 	if(name != GetVoice())
 		return " (as [get_id_name("Unknown")])"
+
+/mob/living/carbon/human/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, message_mode)
+	. = ..()
+	if(message_language != /datum/language/xenocommon)
+		return // A snowflake is a single ice crystal that has achieved a sufficient size, and may have amalgamated with others, then falls through the Earth's atmosphere as snow.
+
+	if(!(species.species_flags & CAN_LEARN_LANGUAGES) || (has_language(message_language) == LANGUAGE_KNOWN))
+		return
+
+	LAZYINITLIST(learning_languages) // Might as well
+
+	learning_languages[message_language]++
+
+	switch(learning_languages[message_language])
+		if(20)
+			to_chat(src, "<span class='notice'>You've started noticing a pattern in some of the hissing sounds from [speaker]...</span>")
+		if(40)
+			to_chat(src, "<span class='notice'>Placeholder.</span>") // << If this is merged, find who did it and make fun of them
+		if(60)
+			to_chat(src, "<span class='notice'>You're starting to pick up the meaning of some words from [speaker], but it's still hazy...</span>")
+		if(80)
+			to_chat(src, "<span class='notice'>You swear you can almost understand what [speaker] is saying...</span>")
+		if(100)
+			to_chat(src, "<span class='boldnotice'>After intensive study of the [initial(message_language.name)] language, you've learned to speak and understand it!</span>")
+			grant_language(message_language)
