@@ -58,11 +58,11 @@
 
 /datum/hive_status/proc/post_add(mob/living/carbon/xenomorph/X)
 	X.color = color
-	X.grant_language(/datum/language/common, TRUE)
+	X.grant_language(/datum/language/common)
 
 /datum/hive_status/proc/post_removal(mob/living/carbon/xenomorph/X)
 	X.color = null
-	X.remove_language(/datum/language/common, TRUE)
+	X.remove_language(/datum/language/common)
 
 // for clean transfers between hives
 /mob/living/carbon/xenomorph/proc/transfer_to_hive(hivenumber)
