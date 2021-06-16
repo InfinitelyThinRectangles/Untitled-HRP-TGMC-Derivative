@@ -7,6 +7,8 @@
 		var/mob/pulled_mob = pulling
 		if(pulled_mob.buckled) //if the pulled mob is buckled to an object, we use that object's drag_delay.
 			. = pulled_mob.buckled.drag_delay
+		else if((isxeno(src) && isxeno(pulling)) || (ishuman(src) && ishuman(pulling)))
+			. = 0
 	. += pull_speed
 	if(. <= 0)
 		remove_movespeed_modifier(MOVESPEED_ID_BULKY_DRAGGING)

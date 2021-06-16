@@ -236,6 +236,8 @@
 	var/max_grown = 200
 	var/time_of_birth
 
+	var/xeno_desc = ""
+
 	var/list/stomach_contents
 
 	var/evolution_stored = 0 //How much evolution they have stored
