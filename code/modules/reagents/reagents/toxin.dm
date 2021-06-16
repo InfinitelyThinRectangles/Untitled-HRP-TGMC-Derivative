@@ -506,6 +506,15 @@
 	scannable = TRUE
 
 /datum/reagent/toxin/xeno_growthtoxin/on_mob_life(mob/living/L)
+	var/target_temp = L.get_standard_bodytemperature()
+	if(L.getBruteLoss() || L.getFireLoss())
+		L.heal_limb_damage(0.5, 0.5)
+	if(L.getToxLoss())
+		L.adjustToxLoss(-0.5)
+	if(L.bodytemperature > L.get_standard_bodytemperature())
+		L.adjust_bodytemperature(-20 * TEMPERATURE_DAMAGE_COEFFICIENT, target_temp)
+
+	L.reagent_pain_modifier += PAIN_REDUCTION_VERY_HEAVY
 	L.jitter(1) //So unga know to get treated
 	return ..()
 
