@@ -2505,7 +2505,7 @@
 /turf/open/floor/mainship/blue/full,
 /area/whiskey_outpost)
 "mU" = (
-/obj/effect/alien/weeds/node,
+/obj/effect/landmark/weed_node,
 /turf/open/ground/jungle/impenetrable/nobush,
 /area/whiskey_outpost/outside/west)
 "mW" = (
@@ -3471,7 +3471,7 @@
 /turf/open/ground/grass/beach,
 /area/whiskey_outpost/outside/north)
 "uP" = (
-/obj/effect/alien/weeds/node,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost/outside/south)
 "uS" = (
@@ -3941,7 +3941,7 @@
 	},
 /area/whiskey_outpost/outside/south)
 "Cf" = (
-/obj/effect/alien/weeds/node,
+/obj/effect/landmark/weed_node,
 /turf/open/ground/jungle,
 /area/whiskey_outpost/outside/south)
 "Ci" = (
@@ -4193,10 +4193,6 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/open/floor/plating/ground/dirtgrassborder,
 /area/whiskey_outpost/outside/north)
-"Fk" = (
-/obj/machinery/vending/kink,
-/turf/open/ground/jungle,
-/area/whiskey_outpost/outside/south)
 "Ft" = (
 /obj/structure/platform{
 	dir = 4
@@ -5082,7 +5078,7 @@
 /turf/open/ground/grass,
 /area/whiskey_outpost/outside/north)
 "Vf" = (
-/obj/effect/alien/weeds/node,
+/obj/effect/landmark/weed_node,
 /turf/open/ground/grass,
 /area/whiskey_outpost/outside/south)
 "Vj" = (
@@ -5184,7 +5180,7 @@
 /turf/open/ground/grass,
 /area/whiskey_outpost/outside/west)
 "Xh" = (
-/obj/effect/alien/weeds/node,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/sterile/dark,
 /area/whiskey_outpost/outside/west)
 "Xi" = (
@@ -5305,13 +5301,13 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/whiskey_outpost/outside/west)
 "YY" = (
-/obj/effect/alien/weeds/node,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/plating/warning{
 	dir = 4
 	},
 /area/whiskey_outpost/outside/west)
 "Zb" = (
-/obj/effect/alien/weeds/node,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/sterile/dark,
 /area/whiskey_outpost/outside/east)
 "Ze" = (
@@ -5346,7 +5342,7 @@
 	},
 /area/whiskey_outpost/outside/east)
 "ZD" = (
-/obj/effect/alien/weeds/node,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/plating,
 /area/whiskey_outpost/outside/west)
 "ZK" = (
@@ -15434,7 +15430,7 @@ kz
 kz
 lf
 lf
-Fk
+lf
 lf
 kz
 kz
