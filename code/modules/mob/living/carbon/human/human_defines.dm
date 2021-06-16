@@ -81,6 +81,8 @@
 
 	var/special_voice = "" // For changing our voice. Used by a symptom.
 
+	var/list/learning_languages // Lazy assoc list of languages that are being learned. (Key = Language | Value = Progress)
+
 	var/last_dam = -1	//Used for determining if we need to process all limbs or just some or even none.
 
 	var/mob/remoteview_target

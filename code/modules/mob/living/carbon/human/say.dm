@@ -64,3 +64,30 @@
 /mob/living/carbon/human/get_alt_name()
 	if(name != GetVoice())
 		return " (as [get_id_name("Unknown")])"
+
+/mob/living/carbon/human/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, message_mode)
+	. = ..()
+	if(message_language != /datum/language/xenocommon)
+		return // A snowflake is a single ice crystal that has achieved a sufficient size, and may have amalgamated with others, then falls through the Earth's atmosphere as snow.
+
+	if(!(species.species_flags & CAN_LEARN_LANGUAGES) || (has_language(message_language) == LANGUAGE_KNOWN))
+		return
+
+	LAZYINITLIST(learning_languages) // Might as well
+
+	learning_languages[message_language]++
+
+	switch(learning_languages[message_language])
+		if(20)
+			to_chat(src, "<span class='notice'>Some of the more distinctive rasps or growls from [speaker] seem to repeat. Could they have distinct meanings?</span>")
+		if(40)
+			to_chat(src, "<span class='notice'>Certain vocalisations from [speaker] definitely correspond to particular objects or concepts, but they aren't always identical. Maybe there are grammar rules that modify a particular \"word\"?</span>")
+		if(60)
+			to_chat(src, "<span class='notice'>You're certain now. The vocalisations are exotic and the grammar complicates things, but this is definitely a spoken tongue analogous to any number of terran languages. If you can keep overhearing \"conversations\"...</span>")
+		if(80)
+			to_chat(src, "<span class='notice'>It's starting to come together now. There are still intricacies, exceptions, little-used special cases that you haven't heard yet, but you're reasonably confident that you're on the right track.</span>")
+		if(90)
+			to_chat(src, "<span class='notice'>Your understanding of [speaker]'s language is solidifying rapidly, and it shouldn't take much more overheard conversation before...")
+		if(100)
+			to_chat(src, "<span class='boldnotice'>...You have it. The final piece of the puzzle snaps into place, forming a cohesive working theory on [speaker]'s language.\n If you're right, then <u>you are now able to speak and understand the [initial(message_language.name)] language.</u></span>")
+			grant_language(message_language)
