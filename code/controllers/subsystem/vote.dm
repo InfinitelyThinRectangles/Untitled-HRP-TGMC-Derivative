@@ -152,7 +152,7 @@ SUBSYSTEM_DEF(vote)
 
 		if(!active_admins) // No admins
 			// No delay in case the restart is due to lag
-			SSticker.Reboot("Restart vote successful.", "restart vote", 5 SECONDS)
+			SSticker.Reboot("Restart vote successful.", 5 SECONDS)
 
 		else if(admin_approval("Restart the round?", admin_sound = 'sound/effects/adminhelp.ogg'))
 			SSticker.Reboot("Restart vote successful.", 5 SECONDS) // Admins online, and they approve
