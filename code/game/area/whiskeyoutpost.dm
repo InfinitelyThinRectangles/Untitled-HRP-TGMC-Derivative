@@ -96,3 +96,4 @@
 	icon_state = "away2"
 	ambience = list('sound/ambience/jungle_amb1.ogg')
 	minimap_color = MINIMAP_AREA_JUNGLE
+	
