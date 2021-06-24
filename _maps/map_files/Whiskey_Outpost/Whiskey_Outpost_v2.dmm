@@ -4294,10 +4294,6 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/open/floor/plating/ground/dirtgrassborder,
 /area/whiskey_outpost/outside/north)
-"Fk" = (
-/obj/machinery/vending/kink,
-/turf/open/ground/jungle,
-/area/whiskey_outpost)
 "Ft" = (
 /obj/structure/platform{
 	dir = 4
@@ -15656,7 +15652,7 @@ kz
 kz
 lf
 lf
-Fk
+lf
 lf
 kz
 kz
