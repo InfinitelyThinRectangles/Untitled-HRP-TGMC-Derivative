@@ -73,7 +73,7 @@
 		return FALSE	//godmode
 
 	var/stamina_loss_adjustment = staminaloss + amount
-	var/health_limit = maxHealth * 2
+	var/health_limit = stamina_limit
 	if(stamina_loss_adjustment > health_limit)
 		AdjustParalyzed(stamina_loss_adjustment*0.2)
 
