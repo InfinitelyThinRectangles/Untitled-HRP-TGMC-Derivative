@@ -1467,12 +1467,12 @@ Imports
 	contains = list(/obj/item/weapon/gun/revolver/m44)
 	cost = 7
 
-/datum/supply_packs/imports/rev357/ammo
+/datum/supply_packs/imports/rev44/ammo
 	name = "M-44 SAA Revolver Speedloader"
 	contains = list(/obj/item/ammo_magazine/revolver)
 	cost = 3
 
-/datum/supply_packs/imports/rev357/ammo/polymer
+/datum/supply_packs/imports/rev44/ammo/polymer
 	name = "M-44 SAA PGR Revolver Speedloader"
 	contains = list(/obj/item/ammo_magazine/revolver/polymer)
 	cost = 3
