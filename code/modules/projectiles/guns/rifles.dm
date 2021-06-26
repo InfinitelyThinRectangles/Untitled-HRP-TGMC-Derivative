@@ -725,7 +725,7 @@
 	flags_gun_features = GUN_AUTO_EJECTOR|GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_LOAD_INTO_CHAMBER
 	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_AUTOBURST)
 	gun_skill_category = GUN_SKILL_HEAVY_WEAPONS
-	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 19,"rail_x" = 8, "rail_y" = 21, "under_x" = 22, "under_y" = 15, "stock_x" = 9, "stock_y" = 15)
+	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 19,"rail_x" = 8, "rail_y" = 21, "under_x" = 22, "under_y" = 15, "stock_x" = 9, "stock_y" = 15, "magazine_x" = 11, "magazine_y" = 15)
 	starting_attachment_types = list(/obj/item/attachable/stock/irremoveable/rifle)
 	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.15 SECONDS
