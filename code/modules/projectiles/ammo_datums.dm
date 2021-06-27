@@ -236,8 +236,6 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	handful_icon_state = "bullet_pgr"
 	hud_state = "pistol_pgr"
 	flags_ammo_behavior = AMMO_BALLISTIC
-	damage = 20
-	penetration = 5
 	damage_type = STAMINA
 	shrapnel_chance = 0
 	sundering = 0
@@ -252,9 +250,8 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	handful_icon_state = "bullet_pgr"
 	hud_state = "pistol_pgr"
 	flags_ammo_behavior = AMMO_BALLISTIC
-	damage = 30
 	damage_type = STAMINA
-	penetration = 5
+	shrapnel_chance = 0
 	sundering = 0
 	bullet_color = COLOR_DISABLER_BLUE
 
@@ -382,10 +379,8 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	hud_state = "revolver_pgr"
 	hud_state_empty = "revolver_empty"
 	flags_ammo_behavior = AMMO_BALLISTIC
-	handful_amount = 7
-	damage = 40
 	damage_type = STAMINA
-	penetration = 10
+	shrapnel_chance = 0
 	sundering = 0
 	bullet_color = COLOR_DISABLER_BLUE
 
@@ -444,11 +439,9 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	icon_state = "bullet_pgr"
 	handful_icon_state = "bullet_pgr"
 	hud_state = "revolver_impact_pgr"
-	accuracy_var_high = 10
 	flags_ammo_behavior = AMMO_BALLISTIC
-	damage = 50
 	damage_type = STAMINA
-	penetration = 20
+	shrapnel_chance = 0
 	sundering = 0
 	bullet_color = COLOR_DISABLER_BLUE
 
@@ -524,14 +517,9 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	hud_state = "smg_pgr"
 	hud_state_empty = "smg_empty"
 	flags_ammo_behavior = AMMO_BALLISTIC
-	accuracy_var_low = 7
-	accuracy_var_high = 7
-	damage = 20
 	damage_type = STAMINA
-	accurate_range = 5
-	damage_falloff = 1
+	shrapnel_chance = 0
 	sundering = 0
-	penetration = 10
 	bullet_color = COLOR_DISABLER_BLUE
 
 /datum/ammo/bullet/smg/ap
@@ -564,10 +552,8 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	hud_state = "rifle_pgr"
 	hud_state_empty = "rifle_empty"
 	flags_ammo_behavior = AMMO_BALLISTIC
-	accurate_range = 15
-	damage = 25
 	damage_type = STAMINA
-	penetration = 10
+	shrapnel_chance = 0
 	sundering = 0
 	bullet_color = COLOR_DISABLER_BLUE
 
@@ -591,9 +577,8 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	handful_icon_state = "bullet_pgr"
 	hud_state = "hivelo_pgr"
 	flags_ammo_behavior = AMMO_BALLISTIC
-	damage = 20
 	damage_type = STAMINA
-	penetration = 15
+	shrapnel_chance = 0
 	sundering = 0
 	bullet_color = COLOR_DISABLER_BLUE
 
@@ -617,9 +602,8 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	handful_icon_state = "bullet_pgr"
 	hud_state = "rifle_heavy_pgr"
 	flags_ammo_behavior = AMMO_BALLISTIC
-	damage = 20
 	damage_type = STAMINA
-	penetration = 15
+	shrapnel_chance = 0
 	sundering = 0
 	bullet_color = COLOR_DISABLER_BLUE
 
@@ -683,15 +667,9 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	handful_icon_state = "bullet_pgr"
 	hud_state = "hivelo_pgr"
 	hud_state_empty = "hivelo_empty"
-	damage_falloff = 0.5
 	flags_ammo_behavior = AMMO_BALLISTIC
-	accurate_range_min = 0
-	accurate_range = 30
-	max_range = 40
-	damage = 65
 	damage_type = STAMINA
-	scatter = -15
-	penetration = 20
+	shrapnel_chance = 0
 	sundering = 0
 	bullet_color = COLOR_DISABLER_BLUE
 
