@@ -976,7 +976,7 @@
 // ***************************************
 /datum/action/xeno_action/psychic_influence
 	name = "Psychic Influence"
-	action_icon_state = "psychic_influence"
+	action_icon_state = "psychic_whisper"
 	keybind_signal = COMSIG_XENOABILITY_PSYCHIC_INFLUENCE
 	use_state_flags = XACT_USE_LYING
 	target_flags = XABB_MOB_TARGET
