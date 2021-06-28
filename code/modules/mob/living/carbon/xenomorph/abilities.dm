@@ -986,7 +986,7 @@
 	var/mob/living/carbon/xenomorph/X = owner
 	var/list/target_list = list()
 	for(var/mob/living/possible_target in view(WORLD_VIEW, X))
-		if(possible_target == X || !possible_target.client)) // Removed the Isxeno; time for some xeno on xeno psychic shenanigans ;
+		if(possible_target == X || !possible_target.client) // Removed the Isxeno; time for some xeno on xeno psychic shenanigans ;
 			continue
 		target_list += possible_target
 
