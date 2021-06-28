@@ -188,34 +188,64 @@
 	return ..()
 
 /mob/living/carbon/human/attack_alien_disarm(mob/living/carbon/xenomorph/X, dam_bonus)
-	var/randn = rand(1, 100) // Stolen from human disarm code
-	var/datum/limb/affecting = get_limb(ran_zone(X.zone_selected))
+	var/tackle_pain = X.xeno_caste.tackle_damage
+	if(!tackle_pain)
+		return FALSE
+	if(isnestedhost(src)) //No more memeing nested and infected hosts
+		to_chat(X, "<span class='xenodanger'>We reconsider our mean-spirited bullying of the pregnant, secured host.</span>")
+		return FALSE
+	if(!prob(X.melee_accuracy))
+		X.do_attack_animation(src)
+		playsound(loc, 'sound/weapons/slashmiss.ogg', 25, TRUE)
+		X.visible_message("<span class='danger'>\The [X] shoves at [src], narroly missing!</span>",
+		"<span class='danger'>Our tackle against [src] narroly misses!</span>")
+		return FALSE
 
+	if(protection_aura)
+		tackle_pain *= (1 - (0.10 + 0.05 * protection_aura))  //Stamina damage decreased by 10% + 5% per rank of protection aura
+
+	var/list/pain_mod = list()
+
+	var/signal_return = SEND_SIGNAL(X, COMSIG_XENOMORPH_DISARM_HUMAN, src, tackle_pain, pain_mod)
+
+	for(var/i in pain_mod)
+		tackle_pain += i
+
+	if(dam_bonus)
+		tackle_pain += dam_bonus
+
+	if(!(signal_return & COMPONENT_BYPASS_SHIELDS))
+		tackle_pain = check_shields(COMBAT_MELEE_ATTACK, tackle_pain, "melee")
+
+	if(!tackle_pain)
+		X.do_attack_animation(src)
+		X.visible_message("<span class='danger'>\The [X]'s tackle is blocked by [src]'s shield!</span>", \
+		"<span class='danger'>Our tackle is blocked by [src]'s shield!</span>", null, 5)
+		return FALSE
 	X.do_attack_animation(src, ATTACK_EFFECT_DISARM2)
-	if(randn <= 15) // 15% chance
-		apply_effect(3, WEAKEN, run_armor_check(affecting, "melee"))
-		playsound(loc, 'sound/weapons/alien_knockdown.ogg', 25, TRUE)
-		X.visible_message("<span class='danger'>[X] slams [src] to the ground!</span>",
+
+	if(!IsParalyzed() && !no_stun && (traumatic_shock > 100))
+		Paralyze(20)
+		X.visible_message("<span class='danger'>\The [X] slams [src] to the ground!</span>", \
 		"<span class='danger'>We slam [src] to the ground!</span>", null, 5)
-		log_combat(X, src, "pushed")
-		return
 
-	if(randn <= 40) // 40% chance
-		if(pulling)
-			X.visible_message("<span class='danger'>[X] has broken [src]'s grip on [pulling]!</span>",
-			"<span class='danger'>We break [src]'s grip on [pulling]!</span>", null, 5)
-			stop_pulling()
-		else if(drop_held_item())
-			X.visible_message("<span class='danger'>[X] has disarmed [src]!</span>",
-			"<span class='danger'>We disarm [src]!</span>", null, 5)
-		playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, TRUE, 7)
-		log_combat(X, src, "disarmed")
-		return
+	var/armor_block = 0
+	if(!(signal_return & COMPONENT_BYPASS_ARMOR))
+		armor_block = run_armor_check("chest", "melee")
 
-	playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, 7)
-	X.visible_message("<span class='danger'>[X] attempted to disarm [src]!</span>",
-	"<span class='danger'>We attempt to disarm [src]!</span>", null, 5)
-	log_combat(X, src, "missed a disarm")
+	playsound(loc, 'sound/weapons/alien_knockdown.ogg', 25, TRUE)
+
+	apply_damage(tackle_pain, STAMINA, "chest", armor_block)
+	updateshock()
+	UPDATEHEALTH(src)
+	var/throttle_message = "<span class='danger'>\The [X] throttles [src]!</span>"
+	var/throttle_message2 = "<span class='danger'>We throttle [src]!</span>"
+	if(tackle_pain > 40)
+		throttle_message = "<span class='danger'>\The [X] badly throttles [src]!</span>"
+		throttle_message2 = "<span class='danger'>We badly throttle [src]!</span>"
+	X.visible_message("[throttle_message]", \
+	"[throttle_message2]", null, 5)
+	return TRUE
 
 
 /mob/living/carbon/human/attack_alien_harm(mob/living/carbon/xenomorph/X, dam_bonus, set_location = FALSE, random_location = FALSE, no_head = FALSE, no_crit = FALSE, force_intent = null)
