@@ -986,12 +986,12 @@
 	var/mob/living/carbon/xenomorph/X = owner
 	var/list/target_list = list()
 	for(var/mob/living/possible_target in view(WORLD_VIEW, X))
-		if(possible_target == X || !possible_target.client || isxeno(possible_target))
+		if(possible_target == X || !possible_target.client)) // Removed the Isxeno; time for some xeno on xeno psychic shenanigans ;
 			continue
 		target_list += possible_target
 
 	if(!length(target_list))
-		to_chat(X, "<span class='warning'>There's nobody nearby to influence to.</span>")
+		to_chat(X, "<span class='warning'>There's nobody nearby to influence.</span>")
 		return
 
 	var/mob/living/L = tgui_input_list(X, "Target", "Send a Psychic Influence to whom?", target_list)
@@ -1006,9 +1006,9 @@
 		return
 
 	log_directed_talk(X, L, msg, LOG_SAY, "psychic influence")
-	to_chat(L, "<span class='alien'>You hear a strange, alien voice in your head. <i>\"[msg]\"</i></span>")
-	to_chat(X, "<span class='xenonotice'>We said: \"[msg]\" to [L]</span>")
-	for(var/_M in GLOB.observer_list) // it's the xeno's main method of communication, so it should be visible
+	to_chat(L, "<span class='alien'>You<i>\"[msg]\"</i></span>")
+	to_chat(X, "<span class='xenonotice'>We influenced: \"[msg]\" to [L]</span>")
+	for(var/_M in GLOB.observer_list) // it's the xeno's main method of S M U T, so it should be visible
 		var/mob/M = _M
 		if(M == L || M == X)
 			continue
@@ -1016,10 +1016,10 @@
 			continue
 		if(!M.client)
 			continue
-		if(get_dist(M, X) > 7 || M.z != X.z) //they're out of range of normal hearing
+		if(get_dist(M, X) > 7 || M.z != X.z) //they're out of range of normal S M U T
 			if(!(M.client.prefs.toggles_chat & CHAT_GHOSTEARS))
 				continue
-		if((istype(M.remote_control, /mob/camera/aiEye) || isAI(M))) // Not sure why this is here really, but better safe than sorry
+		if((istype(M.remote_control, /mob/camera/aiEye) || isAI(M))) // Not sure why this is here really, but better S M U T than sorry
 			continue
 
 		if(check_other_rights(M.client, R_ADMIN, FALSE))
