@@ -60,6 +60,7 @@
 		"sec_record" = sec_record,
 		"exploit_record" = exploit_record,
 		"xeno_desc" = xeno_desc,
+		"ooc_notes" = ooc_notes,
 
 		// Clothing
 		"undershirt" = undershirt,
@@ -100,7 +101,7 @@
 	for(var/key in key_bindings)
 		for(var/kb_name in key_bindings[key])
 			.["key_bindings"][kb_name] += list(key)
-	
+
 	.["custom_emotes"] = list()
 	for(var/id in 1 to CUSTOM_EMOTE_SLOTS)
 		var/datum/custom_emote/emote = custom_emotes[id]
@@ -529,6 +530,12 @@
 			if(!new_record)
 				return
 			xeno_desc = new_record
+
+		if("ooc_notes")
+			var/new_record = trim(html_encode(params["NotesDesc"]), MAX_MESSAGE_LEN)
+			if(!new_record)
+				return
+			ooc_notes = new_record
 
 		if("windowflashing")
 			windowflashing = !windowflashing

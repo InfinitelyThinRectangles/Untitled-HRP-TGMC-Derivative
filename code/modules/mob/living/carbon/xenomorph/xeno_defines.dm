@@ -237,6 +237,7 @@
 	var/time_of_birth
 
 	var/xeno_desc = ""
+	var/ooc_notes = ""
 
 	var/list/stomach_contents
 

@@ -364,7 +364,7 @@
 	READ_FILE(S["exploit_record"], exploit_record)
 	READ_FILE(S["flavor_text"], flavor_text)
 	READ_FILE(S["xeno_desc"], xeno_desc)
-
+	READ_FILE(S["ooc_notes"], ooc_notes)
 
 	be_special		= sanitize_integer(be_special, NONE, MAX_BITFLAG, initial(be_special))
 
@@ -423,6 +423,7 @@
 	exploit_record	= sanitize_text(exploit_record, initial(exploit_record))
 	flavor_text		= sanitize_text(flavor_text, initial(flavor_text))
 	xeno_desc		= sanitize_text(xeno_desc, initial(xeno_desc))
+	ooc_notes		= sanitize_text(ooc_notes, initial(ooc_notes))
 
 	if(!synthetic_name)
 		synthetic_name = "David"
@@ -507,6 +508,7 @@
 	exploit_record	= sanitize_text(exploit_record, initial(exploit_record))
 	flavor_text		= sanitize_text(flavor_text, initial(flavor_text))
 	xeno_desc		= sanitize_text(xeno_desc, initial(xeno_desc))
+	ooc_notes		= sanitize_text(ooc_notes, initial(ooc_notes))
 
 	WRITE_FILE(S["be_special"], be_special)
 
@@ -563,6 +565,7 @@
 	WRITE_FILE(S["exploit_record"], exploit_record)
 	WRITE_FILE(S["flavor_text"], flavor_text)
 	WRITE_FILE(S["xeno_desc"], xeno_desc)
+	WRITE_FILE(S["ooc_notes"], ooc_notes)
 
 	return TRUE
 

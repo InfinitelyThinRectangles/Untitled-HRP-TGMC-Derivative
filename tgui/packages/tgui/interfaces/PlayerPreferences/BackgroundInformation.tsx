@@ -11,7 +11,9 @@ export const BackgroundInformation = (props, context) => {
     sec_record,
     exploit_record,
     xeno_desc,
+    ooc_notes,
   } = data;
+
 
   const [characterDesc, setCharacterDesc] = useLocalState(
     context,
@@ -42,6 +44,11 @@ export const BackgroundInformation = (props, context) => {
     context,
     'xenoDesc' + slot,
     xeno_desc
+  );
+  const [NotesDesc, setNotesDesc] = useLocalState(
+    context,
+    'NotesDesc' + slot,
+    ooc_notes
   );
   return (
     <Section title="Background information">
@@ -203,6 +210,35 @@ export const BackgroundInformation = (props, context) => {
               maxLength={1024}
               value={xenoDesc}
               onChange={(e, value) => setXenoDesc(value)}
+            />
+          </Section>
+        </Grid.Column>
+      </Grid>
+      <Divider />
+      <Grid>
+        <Grid.Column>
+          <Section
+            title="OOC Notes"
+            buttons={
+              <Box>
+                <Button
+                  icon="save"
+                  disabled={NotesDesc === ooc_notes}
+                  onClick={() => act('ooc_notes', { NotesDesc })}>
+                  Save
+                </Button>
+                <Button
+                  icon="times"
+                  onClick={() => setNotesDesc(ooc_notes)}>
+                  Reset
+                </Button>
+              </Box>
+            }>
+            <TextArea
+              height="100px"
+              maxLength={1024}
+              value={NotesDesc}
+              onChange={(e, value) => setNotesDesc(value)}
             />
           </Section>
         </Grid.Column>
