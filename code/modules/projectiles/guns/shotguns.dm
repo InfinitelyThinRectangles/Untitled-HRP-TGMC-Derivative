@@ -572,6 +572,7 @@ can cause issues with ammo types getting mixed up during the burst.
 /obj/item/weapon/gun/shotgun/pump/cmb
 	name = "\improper Paladin-8 pump shotgun"
 	desc = "A nine-round pump action shotgun. It loads only a specialized beanbag round for riot control."
+	caliber = CALIBER_8G
 	icon = 'icons/Marine/gun64.dmi'
 	icon_state = "pal12"
 	item_state = "pal12"
