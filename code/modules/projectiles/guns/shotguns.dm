@@ -120,6 +120,10 @@ can cause issues with ammo types getting mixed up during the burst.
 	new_handful.generate_handful(selection, CALIBER_410, 1, /obj/item/weapon/gun/shotgun)
 	return new_handful
 
+/obj/item/weapon/gun/shotgun/pump/cmb/retrieve_shell(selection)
+	var/obj/item/ammo_magazine/handful/new_handful = new /obj/item/ammo_magazine/handful()
+	new_handful.generate_handful(selection, CALIBER_8G, 1, /obj/item/weapon/gun/shotgun)
+	return new_handful
 
 /obj/item/weapon/gun/shotgun/proc/check_chamber_position()
 	return 1
