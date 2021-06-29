@@ -68,6 +68,7 @@
 		ethnicity = client.prefs.ethnicity
 		body_type = client.prefs.body_type
 		flavor_text = client.prefs.flavor_text
+		ooc_notes = client.prefs.ooc_notes
 		update_body()
 		update_hair()
 		regenerate_icons()

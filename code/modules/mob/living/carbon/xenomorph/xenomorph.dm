@@ -195,6 +195,7 @@
 		to_chat(user, "It appears to belong to the [hive.prefix]hive")
 
 	to_chat(user, "<span class='info'>[xeno_desc]</span>")
+	to_chat(user, "<span class='info'>[ooc_notes]</span>")
 
 /mob/living/carbon/xenomorph/Destroy()
 	if(mind) mind.name = name //Grabs the name when the xeno is getting deleted, to reference through hive status later.

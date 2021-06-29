@@ -115,6 +115,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/gen_record = ""
 	var/exploit_record = ""
 	var/xeno_desc = ""
+	var/ooc_notes = ""
 
 	var/list/exp = list()
 	var/list/menuoptions = list()
@@ -168,7 +169,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	if(!IsGuestKey(C.key))
 		load_path(C.ckey)
 		if(!load_loadout_manager())
-			loadout_manager = new 
+			loadout_manager = new
 		if(load_preferences() && load_character())
 			return
 
@@ -179,7 +180,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	for(var/i in 1 to CUSTOM_EMOTE_SLOTS)
 		var/datum/custom_emote/emote = new
 		emote.id = i
-		custom_emotes += emote 
+		custom_emotes += emote
 	C.update_movement_keys(src)
 	loadout_manager = new
 

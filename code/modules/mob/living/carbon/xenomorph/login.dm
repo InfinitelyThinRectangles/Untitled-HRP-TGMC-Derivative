@@ -18,5 +18,7 @@
 
 	if(client.prefs?.xeno_desc)
 		xeno_desc = client.prefs.xeno_desc
+	if(client.prefs?.ooc_notes)
+		ooc_notes = client.prefs.ooc_notes
 
 	generate_name()

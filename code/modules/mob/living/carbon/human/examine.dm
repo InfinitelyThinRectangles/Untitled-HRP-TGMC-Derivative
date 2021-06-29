@@ -25,6 +25,7 @@
 		if(reagents.get_reagent_amount(/datum/reagent/toxin/xeno_hemodile))
 			msg += "Hemodile: 20% stamina damage received, when damaged, and slowed by 25% (inject neurotoxin for 50% slow)\n"
 		msg += "[flavor_text]\n"
+		msg += "[ooc_notes]\n"
 		msg += "*---------*</span>"
 		to_chat(user, msg)
 		return
@@ -526,6 +527,7 @@
 
 
 	msg += "[flavor_text]<br>"
+	msg += "[ooc_notes]<br>"
 
 	if(has_status_effect(STATUS_EFFECT_ADMINSLEEP))
 		msg += "<span class='highdanger'><B>This player has been slept by staff.</B>\n</span>"

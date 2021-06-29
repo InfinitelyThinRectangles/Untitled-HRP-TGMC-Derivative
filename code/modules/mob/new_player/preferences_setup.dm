@@ -175,6 +175,7 @@
 	character.name = character.real_name
 
 	character.flavor_text = flavor_text
+	character.ooc_notes = ooc_notes
 
 	character.med_record = med_record
 	character.sec_record = sec_record

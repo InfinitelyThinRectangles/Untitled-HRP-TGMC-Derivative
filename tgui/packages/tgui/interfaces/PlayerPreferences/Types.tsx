@@ -37,6 +37,7 @@ type PlayerPreferencesData = {
   sec_record: string,
   exploit_record: string,
   xeno_desc: string,
+  ooc_notes: string,
   underwear: number,
   undershirt: number,
   backpack: number,
